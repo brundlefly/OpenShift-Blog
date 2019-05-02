@@ -1,10 +1,12 @@
 <?php
 /*
-Template Name: 404
+Template Name: Category Archives
 */
 get_header(); ?>
 
 <div id="post-content">
+
+	<h2>Category: <?php single_cat_title(); ?></h2>
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 

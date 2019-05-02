@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php wp_title('sep', 'echo', 'seplocation'); ?></title>
 	<link href="https://assets.openshift.net/content/osh-nav-footer.css" rel="stylesheet" type="text/css" media="screen, print" />
-	<link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css" media="screen, print" />
+	<!--<link href="https://assets.openshift.net/content/subdomain.css" rel="stylesheet" type="text/css" media="screen, print" />-->
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -122,6 +122,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </li>
 
             <li><a class="nav-sign-up" target="_blank" href="https://www.openshift.com/trial/">Free Trial</a></li>
+
+            <li><a class="nav-sign-up" target="_blank" href="<?php echo site_url(); ?>/archive">Blog Archive</a></li>
+
 
             <li><a target="_blank" href="https://manage.openshift.com" class="nav-log-in">Sign In <span class="fa fa-angle-right"></span></a></li>
 

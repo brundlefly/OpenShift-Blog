@@ -1,26 +1,34 @@
 <?php
 /*
-Template Name: Search Page
+Template Name: Archive
 */
 ?><?php get_header(); ?>
 
-<h2>Search results for "<?= get_search_query(); ?>":</h2>
+<h2>Post Archive</h2>
 
 <div id="post-content">
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-		<h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
-		<div class="meta">
-			<?php the_time('F j, Y'); ?> | By <?php the_author_link(); ?> 
-		</div>
-
-		<?php the_excerpt(); ?>
-
-	<?php endwhile; else : ?>
-		<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
-	<?php endif; ?>
+	<?php 
+// the query
+$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>20)); ?>
+ 
+<?php if ( $wpb_all_query->have_posts() ) : ?>
+ 
+<ul>
+ 
+    <!-- the loop -->
+    <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+    <?php endwhile; ?>
+    <!-- end of the loop -->
+ 
+</ul>
+     <div class="nav-previous alignleft"><?php previous_posts_link( 'Older posts' ); ?></div><div class="nav-next alignright"><?php next_posts_link( 'Newer posts' ); ?></div>
+    <?php wp_reset_postdata(); ?>
+ 
+<?php else : ?>
+    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+<?php endif; ?>
 
 </div>
 
