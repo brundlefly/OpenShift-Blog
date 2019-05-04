@@ -54,10 +54,14 @@ $args = array(
 register_sidebar( $args );
 
 
-add_theme_support( 'infinite-scroll', array(
- 'container' => 'post-content',
- 'footer' => 'page',
-) );
+function openshift_infinite_scroll_init(){
+  add_theme_support( 'infinite-scroll', array(
+   'container' => 'blog-timeline',
+   'footer' => 'page',
+  ) );
+}
+
+add_action( 'after_setup_theme', 'openshift_infinite_scroll_init' );
 
 
 // Home "Sliders"
@@ -104,6 +108,7 @@ function openshift_home_slider($category = null, &$exclude_array){
     <?php
 
   endwhile;
+  wp_reset_query();
 
 }
 

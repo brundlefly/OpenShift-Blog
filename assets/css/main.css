@@ -98,6 +98,16 @@ header.blog-header {
         height: auto;
         margin-bottom: 15px; } }
 
+.home-content {
+  width: 100%;
+  float: left; }
+  .home-content .left {
+    float: left;
+    width: 75%; }
+  .home-content .right {
+    float: right;
+    width: 20%; }
+
 .home.category-posts {
   padding-top: 15px;
   position: relative;
@@ -150,7 +160,8 @@ header.blog-header {
       padding: 20px;
       margin: 0;
       font-weight: normal;
-      font-size: 15px; }
+      font-size: 15px;
+      font-family: "Lucida Console", Monaco, monospace !important; }
 
 #post-content {
   width: 70%;

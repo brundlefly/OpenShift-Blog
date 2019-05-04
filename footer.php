@@ -1,4 +1,6 @@
 </div>
+
+<!--
 <footer id="rh">
   <div class="container">
     <div class="row">
@@ -26,7 +28,7 @@
     </div>
   </div>
 </footer>
-
+-->
 <?php wp_footer(); ?>
 
 <script type="text/javascript">
