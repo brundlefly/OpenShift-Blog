@@ -61,15 +61,7 @@
 
         <div class="category-slider">
 
-          <?php
-
-            query_posts( array(
-                'posts_per_page' => 3,
-                'post__not_in' => $exclude_array
-              )
-            );
-
-          ?>
+          <?php openshift_home_slider(null, $exclude_array); ?>
 
         </div>
 
@@ -112,16 +104,36 @@
       </div>
     </div>
 
-    <div class="blog-timeline infinite-scroll">
+    <div id="blog-timeline" class="blog-timeline infinite-scroll">
       <?php
         query_posts( array(
             'posts_per_page' => 10,
             'post__not_in' => $exclude_array
           )
         );
-        while ( have_posts() ) : the_post(); ?>
+        while ( have_posts() ) : the_post();
 
-        <h1><?php the_title(); ?></h1>
+          $img_url = wp_get_attachment_url( get_post_thumbnail_id() );
+          $get_the_image = get_the_image(array( 'width' => '300', 'height' => '300', 'image_class' => 'pull-left', 'scan' => true, 'link' => false, 'format' => 'array' ));
+          if ( !empty( $img_url )) {
+            $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'home-thumb');
+          } elseif(!empty($get_the_image)) {
+            $thumb = get_the_image(array( 'width' => '300', 'height' => '300', 'image_class' => 'pull-left', 'scan' => true, 'link' => false, 'format' => 'array' ));
+            $thumb_url = $thumb['src'];
+          } else {
+            $thumb_url = get_stylesheet_directory_uri() . '/assets/img/placeholder.jpg';
+          }
+
+      ?>
+
+        <article>
+          <div class="thumb" style="background-image: url(<?= $thumb_url ?>"></div>
+          <div class="copy">
+            <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+            <p class="meta"><?php the_author(); ?> | <?php the_date(); ?></p>
+            <?php the_excerpt(); ?>
+          </div>
+        </article>
 
       <?php endwhile; ?>
     </div>
@@ -129,6 +141,7 @@
   </div>
 
   <div class="right">
+    <h2>Categories</h2>
     <nav class="category-menu">
       <ul>
         <li><a href="">Category Name</a></li>

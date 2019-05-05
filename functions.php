@@ -102,6 +102,7 @@ function openshift_home_slider($category = null, &$exclude_array){
     <a href="<?php the_permalink(); ?>" class="post" style="background-image: url(<?= $thumb_url; ?>) !important; background-size: cover; background-position: center;">
       <div class="headline-wrapper">
         <h1><?php the_title(); ?></h1>
+        <p><?php the_author(); ?> | <?php the_date(); ?></p>
       </div>
     </a>
 
