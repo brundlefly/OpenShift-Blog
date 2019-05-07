@@ -21,14 +21,14 @@ function roots_scripts() {
    */
   if (WP_ENV === 'development') {
     $assets = array(
-      'static_assets_css'  => STATIC_ASSETS_URL . '/subdomain.css',
+      'static_assets_css'  => '/assets/css/subdomain.css',
       'css'                => '/assets/css/main.css',
     );
   } else {
     $get_assets = file_get_contents(get_template_directory() . '/assets/manifest.json');
     $assets     = json_decode($get_assets, true);
     $assets     = array(
-      'static_assets_css'  => STATIC_ASSETS_URL . '/subdomain.css',
+      'static_assets_css'  => S'/assets/css/subdomain.css',
       'css'                => '/assets/css/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
     );
   }

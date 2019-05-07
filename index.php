@@ -3,6 +3,8 @@
 <!-- FEATURED POSTS -->
 <div class="home featured-posts">
 
+  <h2 class="header">Featured Posts</h2>
+
   <?php
 
   $exclude_array = array();
@@ -131,7 +133,9 @@
           <div class="copy">
             <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
             <p class="meta"><?php the_author(); ?> | <?php the_date(); ?></p>
-            <?php the_excerpt(); ?>
+            <?php
+              the_excerpt();
+            ?>
           </div>
         </article>
 
@@ -143,18 +147,11 @@
   <div class="right">
     <h2>Categories</h2>
     <nav class="category-menu">
-      <ul>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-        <li><a href="">Category Name</a></li>
-      </ul>
+    <?php
+      wp_nav_menu(array(
+        'theme_location' => 'sidebar-cat'
+      ));
+    ?>
     </nav>
   </div>
 

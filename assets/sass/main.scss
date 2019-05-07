@@ -1,11 +1,30 @@
 body {
-	font-family: "Lucida Console", Monaco, monospace !important;
+	//font-family: "Lucida Console", Monaco, monospace;
+}
+
+#search-iframe {
+  border: none;
+  height: 70vh;
+  width: 100%;
+}
+
+nav#main {
+    margin-bottom: 20px;
+}
+
+body.admin-bar {
+    position: static !important;
 }
 #content-binding {
 	max-width: 1200px;
 	width: 100%;
 	margin: 25px auto 50px auto;
 	overflow: auto;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	@media screen and (max-width: 1200px) {
+		width: auto;
+		margin: 25px 20px 50px 20px;
+	}
 	@media screen and (max-width: 800px) {
 		padding: 15px;
 		width: auto;
@@ -38,6 +57,10 @@ header.blog-header {
 	float: left;
 	@media screen and (max-width: 750px) {
 		height: auto;
+	}
+	h2.header {
+		font-family: "Lucida Console", Monaco, monospace !important;
+		margin-top:0;
 	}
 	a.post {
 		display: block;
@@ -117,15 +140,25 @@ header.blog-header {
 	width: 100%;
 	float: left;
 	margin-top: 40px;
+	font-family: "Lucida Console", Monaco, monospace;
 	.left {
 		float: left;
 		width: 75%;
+		@media screen and (max-width: 800px) {
+			float: none;
+			width: auto;
+		}
 	}
 	.right {
 		float: right;
 		width: 23%;
+		@media screen and (max-width: 800px) {
+			float: none;
+			width: auto;
+		}
 		h2 {
 			margin-top: 0;
+			font-family: "Lucida Console", Monaco, monospace;
 		}
 		nav.category-menu {
 			ul {
@@ -134,6 +167,7 @@ header.blog-header {
 				li {
 					padding: 10px 0 10px 0;
 					border-top: 1px solid #CCC;
+					font-family: "Lucida Console", Monaco, monospace;
 				}
 			}
 		}
@@ -145,8 +179,11 @@ header.blog-header {
 	clear: both;
 	width: 100%;
 	float: left;
+	h2 {
+		font-family: "Lucida Console", Monaco, monospace;
+	}
 	@media screen and (max-width: 750px) {
-		width: 80% !important;
+		
 	}
 	.category {
 		//overflow: auto;
@@ -219,8 +256,10 @@ header.blog-header {
 			font-size: 12px;
 			margin: 0;
 		}
-		@media screen and (max-width: 750px) {
-			//width: 100% !important;
+		@media screen and (max-width: 600px) {
+			float: none;
+			width: auto;
+			margin-bottom: 20px;
 		}
 	}
 }
@@ -246,15 +285,25 @@ header.blog-header {
 		border: 1px solid #CCC;
 		background-size: cover;
 		background-position: center;
+		@media screen and (max-width: 800px) {
+			float: none;
+			width: 100%;
+			margin-bottom: 20px;
+		}
 	}
 	.copy {
 		width: 73%;
 		float: right;
+		@media screen and (max-width: 800px) {
+			float: none;
+			width: 100%;
+		}
 	}
 	h1 {
 		font-size: 28px;
 		margin: 0;
 		padding: 0;
+		font-family: "Lucida Console", Monaco, monospace;
 	}
 	p {
 		font-size: 14px;

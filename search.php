@@ -1,10 +1,10 @@
 <?php
 /*
-Template Name: Archive
+Template Name: Search Results
 */
 ?><?php get_header(); ?>
 
-<h2>Post Archive</h2>
+<h2>Search Results For "<?php the_search_query(); ?>"</h2>
 
 <div id="post-content">
 

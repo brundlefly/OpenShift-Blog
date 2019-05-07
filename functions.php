@@ -5,7 +5,7 @@ $roots_includes = array(
   'lib/init.php',            // Initial theme setup and constants
   'lib/config.php',          // Configuration
   'lib/nav.php',             // Custom nav modifications
-  'lib/scripts.php',         // Scripts and stylesheets
+  //'lib/scripts.php',         // Scripts and stylesheets
 );
 
 foreach ($roots_includes as $file) {
@@ -19,8 +19,10 @@ unset($file, $filepath);
 
 function openshift_styles() {
     wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0');
-    wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/js/slick/slick.css', array(), '1.8.1');
-    //wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/js/slick/slick-theme.css', array(), '1.8.1');
+
+    wp_enqueue_style( 'subdomain', get_template_directory_uri() . '/assets/css/subdomain.css', array(), '1.0.0');
+    wp_enqueue_style( 'container-platform', get_template_directory_uri() . '/assets/css/container-platform.css', array(), '1.0.0');
+    wp_enqueue_style( 'osh-nav-footer', get_template_directory_uri() . '/assets/css/osh-nav-footer.css', array(), '1.0.0');
 
     wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.4.0.min.js', array(), '3.4.0');
     wp_enqueue_script( 'slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js', array(), '1.8.1');
@@ -53,7 +55,7 @@ $args = array(
 );
 register_sidebar( $args );
 
-
+/*
 function openshift_infinite_scroll_init(){
   add_theme_support( 'infinite-scroll', array(
    'container' => 'blog-timeline',
@@ -62,7 +64,9 @@ function openshift_infinite_scroll_init(){
 }
 
 add_action( 'after_setup_theme', 'openshift_infinite_scroll_init' );
+*/
 
+register_nav_menu( 'sidebar-cat', "Sidebar Category Menu" );
 
 // Home "Sliders"
 
